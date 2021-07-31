@@ -14,22 +14,29 @@
 # limitations under the License.
 #
 
+VENDOR_NAME := aosp
+ifneq ("$(wildcard vendor/lineage/*)","")
+    VENDOR_NAME := lineage
+else ifneq ("$(wildcard vendor/bliss/*)","")
+    VENDOR_NAME := bliss
+endif
+
 PRODUCT_MAKEFILES := \
-    lineage_waydroid_arm64:$(LOCAL_DIR)/waydroid_arm64/lineage_waydroid_arm64.mk \
-    lineage_waydroid_arm:$(LOCAL_DIR)/waydroid_arm/lineage_waydroid_arm.mk \
-    lineage_waydroid_x86:$(LOCAL_DIR)/waydroid_x86/lineage_waydroid_x86.mk \
-    lineage_waydroid_x86_64:$(LOCAL_DIR)/waydroid_x86_64/lineage_waydroid_x86_64.mk
+    $(VENDOR_NAME)_waydroid_arm64:$(LOCAL_DIR)/waydroid_arm64/$(VENDOR_NAME)_waydroid_arm64.mk \
+    $(VENDOR_NAME)_waydroid_arm:$(LOCAL_DIR)/waydroid_arm/$(VENDOR_NAME)_waydroid_arm.mk \
+    $(VENDOR_NAME)_waydroid_x86:$(LOCAL_DIR)/waydroid_x86/$(VENDOR_NAME)_waydroid_x86.mk \
+    $(VENDOR_NAME)_waydroid_x86_64:$(LOCAL_DIR)/waydroid_x86_64/$(VENDOR_NAME)_waydroid_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_waydroid_arm64-user \
-    lineage_waydroid_arm64-userdebug \
-    lineage_waydroid_arm64-eng \
-    lineage_waydroid_arm-user \
-    lineage_waydroid_arm-userdebug \
-    lineage_waydroid_arm-eng \
-    lineage_waydroid_x86-user \
-    lineage_waydroid_x86-userdebug \
-    lineage_waydroid_x86-eng \
-    lineage_waydroid_x86_64-user \
-    lineage_waydroid_x86_64-userdebug \
-    lineage_waydroid_x86_64-eng
+    $(VENDOR_NAME)_waydroid_arm64-user \
+    $(VENDOR_NAME)_waydroid_arm64-userdebug \
+    $(VENDOR_NAME)_waydroid_arm64-eng \
+    $(VENDOR_NAME)_waydroid_arm-user \
+    $(VENDOR_NAME)_waydroid_arm-userdebug \
+    $(VENDOR_NAME)_waydroid_arm-eng \
+    $(VENDOR_NAME)_waydroid_x86-user \
+    $(VENDOR_NAME)_waydroid_x86-userdebug \
+    $(VENDOR_NAME)_waydroid_x86-eng \
+    $(VENDOR_NAME)_waydroid_x86_64-user \
+    $(VENDOR_NAME)_waydroid_x86_64-userdebug \
+    $(VENDOR_NAME)_waydroid_x86_64-eng
