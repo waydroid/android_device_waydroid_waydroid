@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/*
+** Copyright 2017, The Android Open Source Project.
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<!-- The 'range' values below are based on tests run 2016-04-13 on Ubuntu 14.04
+     x86-64, Xeon 2.8 GHz x 10
+
+     The range values are set to (meas / sqrt(tolerance)) and
+     (meas * sqrt(tolerance)).
+     These values maximize the 'success' window for the tests performed in
+     cts/libs/deviceutil/src/android/cts/util/MediaUtils.java.
+     That file defines 'tolerance' as sqrt(12.1).
+
+     Where multiple results were obtained, the geometric mean was used.
+
+        OMX.google.h264.encoder  video/avc            320x 240 measured 1294.2
+        OMX.google.h264.decoder  video/avc            320x 240 measured 7204.1, 9151.4
+
+        OMX.google.h263.encoder  video/3gpp           176x 144 measured 2127.0
+        OMX.google.h263.decoder  video/3gpp           176x 144 measured 7574.0
+
+        OMX.google.mpeg4.encoder video/mp4v-es        176x 144 measured 2783.8
+        OMX.google.mpeg4.decoder video/mp4v-es        176x 144 measured 6954.2
+
+        OMX.google.vp8.encoder   video/x-vnd.on2.vp8 1280x 720 measured  195.0
+        OMX.google.vp8.encoder   video/x-vnd.on2.vp8 1920x1080 measured   93.3,   91.1
+        OMX.google.vp8.decoder   video/x-vnd.on2.vp8 1280x 720 measured 1196.1, 1211.3
+        OMX.google.vp8.decoder   video/x-vnd.on2.vp8 1920x1080 measured  483.7,  497.6
+-->
+
+<MediaCodecs>
+    <Encoders>
+        <MediaCodec name="OMX.google.h263.encoder" type="video/3gpp" update="true">
+            <!-- 3 runs, min 849 max 1008 gmean 943 -->
+            <Limit name="measured-frame-rate-176x144" range="849-1008" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.h264.encoder" type="video/avc" update="true">
+            <!-- 3 runs, min 496 max 629 gmean 565 -->
+            <Limit name="measured-frame-rate-320x240" range="496-629" />
+            <!-- 2 runs, min 197 max 203 gmean 201 -->
+            <Limit name="measured-frame-rate-720x480" range="197-203" />
+            <!-- 2 runs, min 93 max 97 gmean 95 -->
+            <Limit name="measured-frame-rate-1280x720" range="93-97" />
+            <!-- 2 runs, min 45 max 47 gmean 46 -->
+            <Limit name="measured-frame-rate-1920x1080" range="45-47" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.mpeg4.encoder" type="video/mp4v-es" update="true">
+            <!-- 3 runs, min 881 max 1142 gmean 994 -->
+            <Limit name="measured-frame-rate-176x144" range="881-1142" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.vp8.encoder" type="video/x-vnd.on2.vp8" update="true">
+            <!-- 3 runs, min 249 max 285 gmean 264 -->
+            <Limit name="measured-frame-rate-320x180" range="249-285" />
+            <!-- 3 runs, min 104 max 115 gmean 109 -->
+            <Limit name="measured-frame-rate-640x360" range="104-115" />
+            <!-- 3 runs, min 34 max 35 gmean 34 -->
+            <Limit name="measured-frame-rate-1280x720" range="34-35" />
+            <!-- 3 runs, min 26 max 29 gmean 27 -->
+            <Limit name="measured-frame-rate-1920x1080" range="26-29" />
+        </MediaCodec>
+    </Encoders>
+    <Decoders>
+        <MediaCodec name="c2.android.avc.decoder" type="video/avc" update="true">
+            <!-- 4 runs, min 196 max 297 gmean 265 -->
+            <Limit name="measured-frame-rate-320x240" range="196-297" />
+            <!-- 4 runs, min 138 max 158 gmean 151 -->
+            <Limit name="measured-frame-rate-720x480" range="138-158" />
+            <!-- 4 runs, min 60 max 65 gmean 62 -->
+            <Limit name="measured-frame-rate-1280x720" range="60-65" />
+            <!-- 4 runs, min 27 max 31 gmean 29 -->
+            <Limit name="measured-frame-rate-1920x1080" range="27-31" />
+        </MediaCodec>
+        <MediaCodec name="c2.android.h263.decoder" type="video/3gpp" update="true">
+            <!-- 4 runs, min 247 max 354 gmean 307 -->
+            <Limit name="measured-frame-rate-176x144" range="247-354" />
+            <!-- 4 runs, min 230 max 333 gmean 277 -->
+            <Limit name="measured-frame-rate-352x288" range="230-333" />
+        </MediaCodec>
+        <MediaCodec name="c2.android.hevc.decoder" type="video/hevc" update="true">
+            <!-- 4 runs, min 234 max 315 gmean 276 -->
+            <Limit name="measured-frame-rate-352x288" range="234-315" />
+            <!-- 4 runs, min 215 max 267 gmean 242 -->
+            <Limit name="measured-frame-rate-640x360" range="215-267" />
+            <!-- 4 runs, min 209 max 249 gmean 236 -->
+            <Limit name="measured-frame-rate-720x480" range="209-249" />
+            <!-- 4 runs, min 125 max 146 gmean 139 -->
+            <Limit name="measured-frame-rate-1280x720" range="125-146" />
+            <!-- 4 runs, min 80 max 89 gmean 84 -->
+            <Limit name="measured-frame-rate-1920x1080" range="80-89" />
+        </MediaCodec>
+        <MediaCodec name="c2.android.mpeg4.decoder" type="video/mp4v-es" update="true">
+            <!-- 4 runs, min 285 max 404 gmean 344 -->
+            <Limit name="measured-frame-rate-176x144" range="285-404" />
+        </MediaCodec>
+        <MediaCodec name="c2.android.vp8.decoder" type="video/x-vnd.on2.vp8" update="true">
+            <!-- 4 runs, min 253 max 340 gmean 288 -->
+            <Limit name="measured-frame-rate-320x180" range="253-340" />
+            <!-- 4 runs, min 183 max 243 gmean 221 -->
+            <Limit name="measured-frame-rate-640x360" range="183-243" />
+            <!-- 4 runs, min 107 max 113 gmean 110 -->
+            <Limit name="measured-frame-rate-1280x720" range="107-113" />
+            <!-- 4 runs, min 50 max 59 gmean 53 -->
+            <Limit name="measured-frame-rate-1920x1080" range="50-59" />
+        </MediaCodec>
+        <MediaCodec name="c2.android.vp9.decoder" type="video/x-vnd.on2.vp9" update="true">
+            <!-- 4 runs, min 264 max 311 gmean 283 -->
+            <Limit name="measured-frame-rate-320x180" range="264-311" />
+            <!-- 4 runs, min 189 max 255 gmean 224 -->
+            <Limit name="measured-frame-rate-640x360" range="189-255" />
+            <!-- 4 runs, min 127 max 138 gmean 224 -->
+            <Limit name="measured-frame-rate-1280x720" range="127-138" />
+            <!-- 4 runs, min 65 max 88 gmean 77 -->
+            <Limit name="measured-frame-rate-1920x1080" range="65-88" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.h263.decoder" type="video/3gpp" update="true">
+            <!-- 3 runs, min 1246 max 1390 gmean 1342 -->
+            <Limit name="measured-frame-rate-176x144" range="1246-1390" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.h264.decoder" type="video/avc" update="true">
+            <!-- 5 runs, min 299 max 629 gmean 567 -->
+            <Limit name="measured-frame-rate-320x240" range="299-629" />
+            <!-- 4 runs, min 215 max 250 gmean 232 -->
+            <Limit name="measured-frame-rate-720x480" range="215-250" />
+            <!-- 4 runs, min 75 max 85 gmean 78 -->
+            <Limit name="measured-frame-rate-1280x720" range="75-85" />
+            <!-- 4 runs, min 31 max 34 gmean 33 -->
+            <Limit name="measured-frame-rate-1920x1080" range="31-34" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.hevc.decoder" type="video/hevc" update="true">
+            <!-- 4 runs, min 754 max 817 gmean 775 -->
+            <Limit name="measured-frame-rate-352x288" range="754-817" />
+            <!-- 4 runs, min 323 max 394 gmean 373 -->
+            <Limit name="measured-frame-rate-640x360" range="323-394" />
+            <!-- 4 runs, min 349 max 372 gmean 358 -->
+            <Limit name="measured-frame-rate-720x480" range="349-372" />
+            <!-- 4 runs, min 144 max 157 gmean 151 -->
+            <Limit name="measured-frame-rate-1280x720" range="144-157" />
+            <!-- 4 runs, min 74 max 85 gmean 80 -->
+            <Limit name="measured-frame-rate-1920x1080" range="74-85" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.mpeg4.decoder" type="video/mp4v-es" update="true">
+            <!-- 4 runs, min 1439 max 1625 gmean 1523 -->
+            <Limit name="measured-frame-rate-176x144" range="1439-1625" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.vp8.decoder" type="video/x-vnd.on2.vp8" update="true">
+            <!-- 3 runs, min 1129 max 1261 gmean 1190 -->
+            <Limit name="measured-frame-rate-320x180" range="1129-1261" />
+            <!-- 3 runs, min 471 max 525 gmean 504 -->
+            <Limit name="measured-frame-rate-640x360" range="471-525" />
+            <!-- 3 runs, min 126 max 145 gmean 132 -->
+            <Limit name="measured-frame-rate-1280x720" range="126-145" />
+            <!-- 3 runs, min 48 max 51 gmean 49 -->
+            <Limit name="measured-frame-rate-1920x1080" range="48-51" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.vp9.decoder" type="video/x-vnd.on2.vp9" update="true">
+            <!-- 2 runs, min 968 max 1101 gmean 1044 -->
+            <Limit name="measured-frame-rate-320x180" range="968-1101" />
+            <!-- 3 runs, min 291 max 338 gmean 319 -->
+            <Limit name="measured-frame-rate-640x360" range="291-338" />
+            <!-- Those values are from buildbots -->
+            <Limit name="measured-frame-rate-1280x720" range="280-400" />
+            <!-- Buildbot gets ~180 if it is in the first run, ~230 if it is the second run -->
+            <Limit name="measured-frame-rate-1920x1080" range="178-240" />
+        </MediaCodec>
+    </Decoders>
+</MediaCodecs>

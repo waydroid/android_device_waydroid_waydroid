@@ -1,0 +1,32 @@
+# Waydroid props
+import /vendor/waydroid.prop
+
+# Media UBWC
+import /vendor_extra/build.prop vendor.gralloc.disable_ubwc
+
+# Audio
+af.thread.throttle=false
+audio.deep_buffer.media=true
+
+# Provides overrides to configure the Dalvik heap for a 4GB phone
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapgrowthlimit=192m
+dalvik.vm.heapsize=512m
+dalvik.vm.heaptargetutilization=0.6
+dalvik.vm.heapminfree=8m
+dalvik.vm.heapmaxfree=16m
+
+# Stagefright FFMPEG plugin
+media.sf.omx-plugin=libffmpeg_omx.so
+media.sf.hwaccel=1
+
+# SurfaceFlinger
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+ro.surface_flinger.running_without_sync_framework=true
+ro.surface_flinger.vsync_event_phase_offset_ns=2000000
+ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
+debug.sf.latch_unsignaled=1
+debug.sf.disable_backpressure=1
+
+# Disable RescueParty
+persist.sys.disable_rescue=true
