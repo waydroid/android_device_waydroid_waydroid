@@ -25,8 +25,8 @@ $(call inherit-product-if-exists, vendor/bliss/config/common_full_tablet_wifionl
 # Audio HAL
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
-    android.hardware.audio@5.0-impl \
-    android.hardware.audio.effect@5.0-impl \
+    android.hardware.audio@4.0-impl \
+    android.hardware.audio.effect@4.0-impl \
     audio.primary.waydroid \
     audio.r_submix.default \
     audio.usb.default \
