@@ -51,9 +51,13 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service.waydroid \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
+    hwcomposer.waydroid
+
+ifneq ($(TARGET_USE_MESA),false)
+PRODUCT_PACKAGES += \
     gralloc.gbm \
-    hwcomposer.waydroid \
     libGLES_mesa
+endif
 
 # DRM
 PRODUCT_PACKAGES += \

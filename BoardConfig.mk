@@ -37,8 +37,10 @@ USE_XML_AUDIO_POLICY_CONF := 1
 TARGET_NO_BOOTLOADER := true
 
 # Display
-BOARD_GPU_DRIVERS := all
 TARGET_USES_HWC2 := true
+ifneq ($(TARGET_USE_MESA),false)
+BOARD_GPU_DRIVERS := all
+endif
 
 # Filesystem
 TARGET_USERIMAGES_USE_F2FS := true
