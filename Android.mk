@@ -20,6 +20,13 @@ ifneq ($(filter waydroid_arm64 waydroid_arm waydroid_x86 waydroid_x86_64,$(TARGE
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 ifneq ($(filter waydroid_arm64 waydroid_arm,$(TARGET_DEVICE)),)
+MPVR_SYMLINK += $(TARGET_OUT_VENDOR)/lib/libmpvr.so
+$(MPVR_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@mkdir -p $(dir $@)
+	$(hide) ln -sf ../../vendor_extra/lib/libmpvr.so $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(MPVR_SYMLINK)
+
 MTKOMXCORE_SYMLINK += $(TARGET_OUT_VENDOR)/etc/mtk_omx_core.cfg
 $(MTKOMXCORE_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	@mkdir -p $(dir $@)
@@ -28,4 +35,12 @@ $(MTKOMXCORE_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(MTKOMXCORE_SYMLINK)
 endif
 
+ifneq ($(filter waydroid_arm64,$(TARGET_DEVICE)),)
+MPVR64_SYMLINK += $(TARGET_OUT_VENDOR)/lib64/libmpvr.so
+$(MPVR64_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@mkdir -p $(dir $@)
+	$(hide) ln -sf ../../vendor_extra/lib64/libmpvr.so $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(MPVR64_SYMLINK)
+endif
 endif
