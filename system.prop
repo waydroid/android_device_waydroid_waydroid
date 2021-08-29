@@ -16,10 +16,6 @@ dalvik.vm.heaptargetutilization=0.6
 dalvik.vm.heapminfree=8m
 dalvik.vm.heapmaxfree=16m
 
-# Stagefright FFMPEG plugin
-media.sf.omx-plugin=libffmpeg_omx.so
-media.sf.hwaccel=1
-
 # SurfaceFlinger
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 ro.surface_flinger.running_without_sync_framework=true
