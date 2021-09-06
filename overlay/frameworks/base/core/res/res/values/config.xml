@@ -22,4 +22,7 @@
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
 
+    <!-- The device supports freeform window management -->
+    <bool name="config_freeformWindowManagement">true</bool>
+
 </resources>
