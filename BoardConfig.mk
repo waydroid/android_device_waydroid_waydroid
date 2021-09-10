@@ -52,6 +52,8 @@ ifeq ($(filter x86 x86_64,$(TARGET_CPU_ABI)),)
 ifneq ($(PLATFORM_SDK_VERSION),28)
 PRODUCT_EXTRA_VNDK_VERSIONS := 28
 endif
+else
+BOARD_VNDK_RUNTIME_DISABLE := true
 endif
 
 # Properties
