@@ -54,6 +54,11 @@ PRODUCT_PACKAGES += \
     vendor.waydroid.task@1.0-service \
     hwcomposer.waydroid
 
+PRODUCT_PACKAGES += \
+    libEGL_swiftshader \
+    libGLESv1_CM_swiftshader \
+    libGLESv2_swiftshader
+
 ifneq ($(TARGET_USE_MESA),false)
 PRODUCT_PACKAGES += \
     gralloc.gbm \
