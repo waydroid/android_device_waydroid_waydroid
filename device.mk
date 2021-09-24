@@ -89,10 +89,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service.waydroid
 
-# HIDL
-PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := false
-PRODUCT_USE_VNDK_OVERRIDE := true
-
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0-service
