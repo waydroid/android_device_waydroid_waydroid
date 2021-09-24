@@ -176,3 +176,7 @@ PRODUCT_PACKAGES += \
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+
+# VNDK
+PRODUCT_PACKAGES += \
+    ld.config.vndk_lite.txt
