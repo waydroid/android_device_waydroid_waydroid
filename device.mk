@@ -180,3 +180,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # VNDK
 PRODUCT_PACKAGES += \
     ld.config.vndk_lite.txt
+
+ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64,$(TARGET_PRODUCT)),)
+PRODUCT_EXTRA_VNDK_VERSIONS := 28
+endif
