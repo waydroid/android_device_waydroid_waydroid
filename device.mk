@@ -30,7 +30,6 @@ PRODUCT_PACKAGES += \
     audio.primary.waydroid \
     audio.r_submix.default \
     audio.usb.default \
-    audio.a2dp.default \
     libasound_module_pcm_pulse \
     libasound_module_ctl_pulse \
     libasound_module_conf_pulse
