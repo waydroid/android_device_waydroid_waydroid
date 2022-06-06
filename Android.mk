@@ -16,10 +16,10 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter waydroid_arm64 waydroid_arm waydroid_x86 waydroid_x86_64,$(TARGET_DEVICE)),)
+ifneq ($(filter waydroid_arm64 waydroid_arm64_only waydroid_arm waydroid_x86 waydroid_x86_64,$(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
-ifneq ($(filter waydroid_arm64 waydroid_arm,$(TARGET_DEVICE)),)
+ifneq ($(filter waydroid_arm64 waydroid_arm64_only waydroid_arm,$(TARGET_DEVICE)),)
 MPVR_SYMLINK += $(TARGET_OUT_VENDOR)/lib/libmpvr.so
 $(MPVR_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	@mkdir -p $(dir $@)
@@ -41,7 +41,7 @@ $(EGL_MOUNT_POINT): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(EGL_MOUNT_POINT)
 endif
 
-ifneq ($(filter waydroid_arm64,$(TARGET_DEVICE)),)
+ifneq ($(filter waydroid_arm64 waydroid_arm64_only,$(TARGET_DEVICE)),)
 MPVR64_SYMLINK += $(TARGET_OUT_VENDOR)/lib64/libmpvr.so
 $(MPVR64_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	@mkdir -p $(dir $@)
