@@ -180,3 +180,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # VNDK
 PRODUCT_PACKAGES += \
     ld.config.vndk_lite.txt
+
+# Updater
+PRODUCT_PACKAGES += \
+    WaydroidUpdater
