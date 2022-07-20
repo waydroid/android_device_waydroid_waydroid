@@ -39,7 +39,10 @@ TARGET_NO_BOOTLOADER := true
 # Display
 TARGET_USES_HWC2 := true
 ifneq ($(TARGET_USE_MESA),false)
-BOARD_GPU_DRIVERS := all
+BOARD_MESA3D_USES_MESON_BUILD := true
+BOARD_MESA3D_BUILD_LIBGBM := true
+BOARD_MESA3D_GALLIUM_DRIVERS := kmsro r300 r600 nouveau freedreno swrast v3d vc4 etnaviv tegra svga virgl panfrost lima asahi
+BOARD_MESA3D_VULKAN_DRIVERS := broadcom freedreno panfrost swrast virtio-experimental
 endif
 
 # Filesystem

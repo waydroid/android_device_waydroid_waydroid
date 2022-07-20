@@ -70,7 +70,25 @@ PRODUCT_PACKAGES += \
 ifneq ($(TARGET_USE_MESA),false)
 PRODUCT_PACKAGES += \
     gralloc.gbm \
-    libGLES_mesa
+    libEGL_mesa \
+    libGLESv1_CM_mesa \
+    libGLESv2_mesa \
+    libgallium_dri \
+    libglapi \
+    libgbm
+
+PRODUCT_PACKAGES += \
+    vulkan.freedreno \
+    vulkan.broadcom \
+    vulkan.panfrost \
+    vulkan.virtio \
+    vulkan.lvp
+
+ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64,$(TARGET_PRODUCT)),)
+PRODUCT_PACKAGES += \
+    vulkan.intel \
+    vulkan.radeon
+endif
 endif
 
 # DRM
