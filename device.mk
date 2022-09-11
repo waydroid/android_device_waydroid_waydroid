@@ -75,7 +75,8 @@ PRODUCT_PACKAGES += \
     libGLESv1_CM_mesa \
     libGLESv2_mesa \
     libgallium_dri \
-    libglapi
+    libglapi \
+    libgbm_mesa_wrapper
 
 PRODUCT_PACKAGES += \
     vulkan.freedreno \
