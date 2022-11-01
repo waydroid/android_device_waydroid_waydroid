@@ -90,6 +90,9 @@ PRODUCT_PACKAGES += \
     vulkan.intel \
     vulkan.radeon
 endif
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 endif
 
 # DRM
