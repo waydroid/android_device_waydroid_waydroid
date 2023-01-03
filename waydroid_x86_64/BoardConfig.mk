@@ -27,5 +27,5 @@ TARGET_2ND_ARCH_VARIANT := x86_64
 
 ifneq ($(TARGET_USE_MESA),false)
 BOARD_MESA3D_GALLIUM_DRIVERS += radeonsi i915 iris crocus
-BOARD_MESA3D_VULKAN_DRIVERS += amd intel
+BOARD_MESA3D_VULKAN_DRIVERS += amd intel intel_hasvk
 endif

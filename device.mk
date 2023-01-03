@@ -88,7 +88,8 @@ PRODUCT_PACKAGES += \
 ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += \
     vulkan.intel \
-    vulkan.radeon
+    vulkan.radeon \
+    vulkan.intel_hasvk
 endif
 
 PRODUCT_COPY_FILES += \
