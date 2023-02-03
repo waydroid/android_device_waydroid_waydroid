@@ -66,3 +66,7 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Disable scudo
 MALLOC_SVELTE := true
+
+# Offending entries:
+# /system/etc/libnfc-nci.conf
+BUILD_BROKEN_DUP_RULES := true
