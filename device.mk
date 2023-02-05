@@ -62,9 +62,10 @@ PRODUCT_PACKAGES += \
     hwcomposer.waydroid
 
 PRODUCT_PACKAGES += \
-    libEGL_swiftshader \
-    libGLESv1_CM_swiftshader \
-    libGLESv2_swiftshader
+    libEGL_angle \
+    libGLESv1_CM_angle \
+    libGLESv2_angle \
+    vulkan.pastel
 
 ifneq ($(TARGET_USE_MESA),false)
 PRODUCT_PACKAGES += \
