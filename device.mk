@@ -199,10 +199,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# VNDK
-PRODUCT_PACKAGES += \
-    ld.config.vndk_lite.txt
-
 # Binder IPC
 PRODUCT_PACKAGES += \
     vndservicemanager
