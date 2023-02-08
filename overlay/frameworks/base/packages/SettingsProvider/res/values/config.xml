@@ -21,4 +21,7 @@
     <!-- Disable the lockscreen -->
     <bool name="def_lockscreen_disabled">true</bool>
 
+    <!-- Allow users to use both the on-screen keyboard, as well as a real
+         keyboard -->
+    <bool name="def_show_ime_with_hard_keyboard">true</bool>
 </resources>
