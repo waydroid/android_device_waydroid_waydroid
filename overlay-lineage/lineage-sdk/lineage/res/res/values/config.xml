@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2023 The Waydroid Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Default values for status bar DT2S gesture -->
+    <bool name="config_dt2sGestureAvailable">false</bool>
+    <bool name="config_dt2sGestureEnabledByDefault">false</bool>
+</resources>
