@@ -24,4 +24,6 @@ TARGET_ARCH_VARIANT := x86
 ifneq ($(TARGET_USE_MESA),false)
 BOARD_MESA3D_GALLIUM_DRIVERS += i915 iris crocus
 BOARD_MESA3D_VULKAN_DRIVERS += intel intel_hasvk
+BOARD_MESA3D_GALLIUM_VA := enabled
+BOARD_MESA3D_VIDEO_CODECS := h264dec h264enc h265dec h265enc vc1dec
 endif
