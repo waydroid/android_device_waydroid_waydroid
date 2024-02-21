@@ -133,7 +133,12 @@ PRODUCT_COPY_FILES += \
 ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += \
     libffmpeg_omx \
-    media_codecs_ffmpeg.xml
+    media_codecs_ffmpeg.xml \
+    i965_drv_video \
+    crocus_drv_video \
+    iHD_drv_video \
+    libgallium_drv_video
+
 
 PRODUCT_PROPERTY_OVERRIDES += \
     media.sf.omx-plugin=libffmpeg_omx.so \
