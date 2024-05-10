@@ -41,7 +41,7 @@ TARGET_USES_HWC2 := true
 ifneq ($(TARGET_USE_MESA),false)
 BOARD_MESA3D_USES_MESON_BUILD := true
 BOARD_MESA3D_BUILD_LIBGBM := true
-BOARD_MESA3D_GALLIUM_DRIVERS := kmsro r300 r600 nouveau freedreno swrast v3d vc4 etnaviv tegra svga virgl panfrost lima radeonsi
+BOARD_MESA3D_GALLIUM_DRIVERS := kmsro r300 r600 nouveau freedreno swrast v3d vc4 etnaviv tegra svga virgl panfrost lima radeonsi zink
 BOARD_MESA3D_VULKAN_DRIVERS := broadcom freedreno panfrost swrast virtio amd
 endif
 
