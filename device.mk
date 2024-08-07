@@ -14,13 +14,22 @@
 # limitations under the License.
 #
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
+
+ifeq ($(PRODUCT_IS_ATV),true)
+# Inherit from atv products.
+$(call inherit-product, device/google/atv/products/atv_base.mk)
+
+# Inherit some common ROM stuff
+$(call inherit-product-if-exists, vendor/lineage/config/common_full_tv.mk)
+else
 # Inherit from aosp products.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Inherit some common ROM stuff
 $(call inherit-product-if-exists, vendor/lineage/config/common_full_tablet_wifionly.mk)
 $(call inherit-product-if-exists, vendor/bliss/config/common_full_tablet_wifionly.mk)
+endif
 
 # Audio HAL
 PRODUCT_PACKAGES += \
@@ -86,7 +95,7 @@ PRODUCT_PACKAGES += \
     vulkan.virtio \
     vulkan.lvp
 
-ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64,$(TARGET_PRODUCT)),)
+ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64 %_waydroid_atv_x86_64,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += \
     vulkan.intel \
     vulkan.intel_hasvk
@@ -130,7 +139,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
 # Media - Stagefright FFMPEG plugin
-ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64,$(TARGET_PRODUCT)),)
+ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64 %_waydroid_atv_x86_64,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += \
     libffmpeg_omx \
     media_codecs_ffmpeg.xml
