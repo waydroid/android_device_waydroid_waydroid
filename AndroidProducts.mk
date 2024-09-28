@@ -47,4 +47,4 @@ COMMON_LUNCH_CHOICES := \
     $(VENDOR_NAME)_waydroid_x86_64-eng \
     $(VENDOR_NAME)_waydroid_atv_x86_64-user \
     $(VENDOR_NAME)_waydroid_atv_x86_64-userdebug \
-    $(VENDOR_NAME)_waydroid_atv_x86_64-usereng
+    $(VENDOR_NAME)_waydroid_atv_x86_64-eng
