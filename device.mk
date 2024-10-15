@@ -178,11 +178,34 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
+    device/generic/goldfish/wifi/simulated_hostapd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/simulated_hostapd.conf \
+    device/generic/goldfish/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
+    device/generic/goldfish/wifi/WifiConfigStore.xml:data/misc/wifi/WifiConfigStore.xml \
+    $(LOCAL_PATH)/init-net.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init-net.sh \
+    $(LOCAL_PATH)/init.net.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.net.rc \
+     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.software.freeform_window_management.xml:system/etc/permissions/android.software.freeform_window_management.xml
 
 # Power
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    sh_vendor \
+    ip_vendor \
+    iw_vendor \
     android.hardware.power@1.0-service.waydroid
+
+PRODUCT_PACKAGES += \
+        mac80211_create_radios \
+        createns \
+        dhcpclient \
+        execns \
+        hostapd \
+        hostapd_nohidl \
+        netmgr \
+        wifi_forwarder \
+        wpa_supplicant
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
@@ -198,7 +221,9 @@ PRODUCT_PACKAGES += \
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    device/generic/goldfish \
+    device/generic/goldfish-opengl \
 
 # VNDK
 PRODUCT_PACKAGES += \

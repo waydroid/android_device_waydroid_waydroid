@@ -1,0 +1,66 @@
+
+on post-fs-data
+    setprop vold.post_fs_data_done 1
+    mkdir /data/vendor/var 0755 root root
+    mkdir /data/vendor/var/run 0755 root root
+    mkdir /data/vendor/var/run/netns 0755 root root
+    start ranchu-net
+
+on zygote-start
+    # Create the directories used by the Wireless subsystem
+    mkdir /data/vendor/wifi 0771 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+
+service ranchu-net /vendor/bin/init-net.sh
+    class late_start
+    user root
+    group root wakelock wifi
+    oneshot
+    disabled    # Started on post-fs-data
+
+service emu_hostapd /vendor/bin/execns router /vendor/bin/hostapd_nohidl /data/vendor/wifi/hostapd/hostapd.conf
+    user root
+    group root wifi net_raw net_admin
+    disabled
+
+service netmgr /vendor/bin/execns router /vendor/bin/netmgr --if-prefix wlan1 --bridge eth0,radio0-peer
+    user root
+    group root wifi
+    disabled
+
+service wifi_forwarder /vendor/bin/wifi_forwarder
+    user root
+    group root wifi
+    disabled
+
+service dhcpclient_rtr /vendor/bin/dhcpclient -i radio0 --no-gateway
+    user root
+    group root
+    disabled
+
+service dhcpclient_wifi /vendor/bin/dhcpclient -i wlan0 --no-gateway
+    user root
+    group root
+    disabled
+
+on property:vendor.network.bridged=1
+    start dhcpclient_rtr
+
+service dhcpclient_def /vendor/bin/dhcpclient -i eth0 --no-gateway
+    user root
+    group root
+    disabled
+
+
+
+
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant -Dnl80211 -iwlan0  -g@android:wpa_wlan0
+    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.2::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.3::ISupplicant default
+    socket wpa_wlan0 dgram 660 wifi wifi
+    group system wifi inet
+    oneshot
+    disabled
