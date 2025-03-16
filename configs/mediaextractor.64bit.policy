@@ -1,0 +1,3 @@
+memfd_create: 1
+ftruncate: 1
+fcntl: 1

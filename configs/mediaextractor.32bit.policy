@@ -1,0 +1,5 @@
+memfd_create: 1
+ftruncate: 1
+ftruncate64: 1
+fcntl: 1
+fcntl64: 1

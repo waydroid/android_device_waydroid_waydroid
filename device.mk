@@ -136,6 +136,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mediacodec.mesa.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy
 endif
 
+ifneq ($(filter %64 %64_only,$(TARGET_PRODUCT)),)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/mediaextractor.64bit.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+else
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/mediaextractor.32bit.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+endif
+
 # Media - Stagefright FFMPEG plugin
 ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += \
