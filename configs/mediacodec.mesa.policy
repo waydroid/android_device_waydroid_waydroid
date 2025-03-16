@@ -1,0 +1,5 @@
+# Required by mesa3d
+kcmp: 1
+sched_getaffinity: 1
+sysinfo: 1
+mkdirat: 1
