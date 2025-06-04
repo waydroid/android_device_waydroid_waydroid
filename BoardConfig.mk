@@ -27,6 +27,10 @@ TARGET_FLATTEN_APEX := true
 # Platform
 TARGET_BOARD_PLATFORM := waydroid
 
+# Init
+TARGET_INIT_VENDOR_LIB ?= //$(COMMON_PATH):init_waydroid_waydroid
+TARGET_RECOVERY_DEVICE_MODULES ?= init_waydroid_waydroid
+
 # Kernel
 TARGET_NO_KERNEL := true
 
