@@ -4,7 +4,8 @@
      * SPDX-License-Identifier: Apache-2.0
      */
 
-    #include <sys/sysinfo.h>
+    #include "include/libinit_utils.h"
+#include <sys/sysinfo.h>
     #include <libinit_utils.h>
 
     #include <libinit_dalvik_heap.h>
@@ -15,6 +16,7 @@
     #define HEAPMINFREE_PROP "dalvik.vm.heapminfree"
     #define HEAPMAXFREE_PROP "dalvik.vm.heapmaxfree"
     #define HEAPTARGETUTILIZATION_PROP "dalvik.vm.heaptargetutilization"
+    #define LOWMEMORYRAM_PROP "ro.config.low_ram"
 
     #define GB(b) (b * 1024ull * 1024 * 1024)
 
@@ -98,4 +100,8 @@
         property_override(HEAPTARGETUTILIZATION_PROP, dhi->heaptargetutilization);
         property_override(HEAPMINFREE_PROP, dhi->heapminfree);
         property_override(HEAPMAXFREE_PROP, dhi->heapmaxfree);
+
+        if (sys.totalram >= GB(5) && sys.totalram <= GB(6)) {
+            property_override(LOWMEMORYRAM_PROP, "true");
+        }
     }
