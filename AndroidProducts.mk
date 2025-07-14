@@ -26,7 +26,12 @@ PRODUCT_MAKEFILES := \
     $(VENDOR_NAME)_waydroid_arm64_only:$(LOCAL_DIR)/waydroid_arm64_only/$(VENDOR_NAME)_waydroid_arm64_only.mk \
     $(VENDOR_NAME)_waydroid_arm:$(LOCAL_DIR)/waydroid_arm/$(VENDOR_NAME)_waydroid_arm.mk \
     $(VENDOR_NAME)_waydroid_x86:$(LOCAL_DIR)/waydroid_x86/$(VENDOR_NAME)_waydroid_x86.mk \
-    $(VENDOR_NAME)_waydroid_x86_64:$(LOCAL_DIR)/waydroid_x86_64/$(VENDOR_NAME)_waydroid_x86_64.mk
+    $(VENDOR_NAME)_waydroid_x86_64:$(LOCAL_DIR)/waydroid_x86_64/$(VENDOR_NAME)_waydroid_x86_64.mk \
+    $(VENDOR_NAME)_waydroid_tv_arm64:$(LOCAL_DIR)/waydroid_tv_arm64/$(VENDOR_NAME)_waydroid_tv_arm64.mk \
+    $(VENDOR_NAME)_waydroid_tv_arm64_only:$(LOCAL_DIR)/waydroid_tv_arm64_only/$(VENDOR_NAME)_waydroid_tv_arm64_only.mk \
+    $(VENDOR_NAME)_waydroid_tv_arm:$(LOCAL_DIR)/waydroid_tv_arm/$(VENDOR_NAME)_waydroid_tv_arm.mk \
+    $(VENDOR_NAME)_waydroid_tv_x86:$(LOCAL_DIR)/waydroid_tv_x86/$(VENDOR_NAME)_waydroid_tv_x86.mk \
+    $(VENDOR_NAME)_waydroid_tv_x86_64:$(LOCAL_DIR)/waydroid_tv_x86_64/$(VENDOR_NAME)_waydroid_tv_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
     $(VENDOR_NAME)_waydroid_arm64-user \
@@ -43,4 +48,19 @@ COMMON_LUNCH_CHOICES := \
     $(VENDOR_NAME)_waydroid_x86-eng \
     $(VENDOR_NAME)_waydroid_x86_64-user \
     $(VENDOR_NAME)_waydroid_x86_64-userdebug \
-    $(VENDOR_NAME)_waydroid_x86_64-eng
+    $(VENDOR_NAME)_waydroid_x86_64-eng \
+    $(VENDOR_NAME)_waydroid_tv_arm64-user \
+    $(VENDOR_NAME)_waydroid_tv_arm64-userdebug \
+    $(VENDOR_NAME)_waydroid_tv_arm64-eng \
+    $(VENDOR_NAME)_waydroid_tv_arm64_only-user \
+    $(VENDOR_NAME)_waydroid_tv_arm64_only-userdebug \
+    $(VENDOR_NAME)_waydroid_tv_arm64_only-eng \
+    $(VENDOR_NAME)_waydroid_tv_arm-user \
+    $(VENDOR_NAME)_waydroid_tv_arm-userdebug \
+    $(VENDOR_NAME)_waydroid_tv_arm-eng \
+    $(VENDOR_NAME)_waydroid_tv_x86-user \
+    $(VENDOR_NAME)_waydroid_tv_x86-userdebug \
+    $(VENDOR_NAME)_waydroid_tv_x86-eng \
+    $(VENDOR_NAME)_waydroid_tv_x86_64-user \
+    $(VENDOR_NAME)_waydroid_tv_x86_64-userdebug \
+    $(VENDOR_NAME)_waydroid_tv_x86_64-eng

@@ -14,13 +14,22 @@
 # limitations under the License.
 #
 
+ifeq ($(PRODUCT_IS_ATV),true)
+# Inherit from atv products.
+$(call inherit-product, device/google/atv/products/atv_base.mk)
+
+# Inherit some common ROM stuff
+$(call inherit-product-if-exists, vendor/lineage/config/common_full_tv.mk)
+else
 # Inherit from aosp products.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Inherit some common ROM stuff
 $(call inherit-product-if-exists, vendor/lineage/config/common_full_tablet_wifionly.mk)
 $(call inherit-product-if-exists, vendor/bliss/config/common_full_tablet_wifionly.mk)
+endif
+
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Enable automatic partition size
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
@@ -154,7 +163,7 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Media - Stagefright FFMPEG plugin
-ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64,$(TARGET_PRODUCT)),)
+ifneq ($(filter %_waydroid_x86 %_waydroid_x86_64 %_waydroid_tv_x86 %_waydroid_tv_x86_64,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += \
     libffmpeg_omx \
     media_codecs_ffmpeg.xml
@@ -230,7 +239,7 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     vndservicemanager
 
-ifeq ($(filter %_waydroid_x86 %_waydroid_x86_64,$(TARGET_PRODUCT)),)
+ifeq ($(filter %_waydroid_x86 %_waydroid_x86_64 %_waydroid_tv_x86 %_waydroid_tv_x86_64,$(TARGET_PRODUCT)),)
 PRODUCT_EXTRA_VNDK_VERSIONS := 28 29 30
 endif
 
