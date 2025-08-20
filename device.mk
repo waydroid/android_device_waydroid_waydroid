@@ -230,3 +230,8 @@ endif
 # Updater
 PRODUCT_PACKAGES += \
     WaydroidUpdater
+
+# FOSS Apps
+ifeq ($(LINEAGE_BUILDTYPE), foss)
+$(call inherit-product, vendor/foss/foss.mk)
+endif
