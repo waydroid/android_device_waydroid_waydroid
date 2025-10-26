@@ -237,3 +237,9 @@ endif
 # Updater
 PRODUCT_PACKAGES += \
     WaydroidUpdater
+
+#GPS
+PRODUCT_PACKAGES += \
+    gps.default \
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service
