@@ -34,6 +34,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Disable compressed APEX
 OVERRIDE_PRODUCT_COMPRESSED_APEX := false
 
+# VNDK
+# Android 16 deprecates VNDK, but Halium vendors (e.g. Android 14, ro.vndk.version=34)
+# still require a matching VNDK APEX. Without it linkerconfig aborts with
+# "SANITIZER_DEFAULT_VENDOR is not defined" (missing /apex/com.android.vndk.v34) and
+# the container fails to boot. Build the extra VNDK APEX from prebuilts/vndk/v34.
+PRODUCT_EXTRA_VNDK_VERSIONS := 34
+
 # Enable automatic partition size
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
@@ -84,6 +91,9 @@ PRODUCT_PACKAGES += \
     vendor.waydroid.task@1.0-service \
     hwcomposer.drm_minigbm \
     hwcomposer.waydroid
+
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.common-V4-ndk
 
 ifeq ($(ANDROID_BUILD_REDROID_HWC),true)
 PRODUCT_PACKAGES += \

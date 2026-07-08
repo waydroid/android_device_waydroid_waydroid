@@ -49,6 +49,15 @@ $(MPVR64_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MPVR64_SYMLINK)
 
+# The Mali GLES blob dlopen()s mapper.mediatek.so by its absolute
+# /vendor/lib64/hw path
+MAPPER_MEDIATEK_SYMLINK += $(TARGET_OUT_VENDOR)/lib64/hw/mapper.mediatek.so
+$(MAPPER_MEDIATEK_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@mkdir -p $(dir $@)
+	$(hide) ln -sf ../../../vendor_extra/lib64/hw/mapper.mediatek.so $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(MAPPER_MEDIATEK_SYMLINK)
+
 EGL64_MOUNT_POINT += $(TARGET_OUT_VENDOR)/lib64/egl
 $(EGL64_MOUNT_POINT): $(LOCAL_INSTALLED_MODULE)
 	@mkdir -p $@
