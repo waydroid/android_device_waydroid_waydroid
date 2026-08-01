@@ -28,4 +28,7 @@
     <!-- Do not restrict the UI resolution on the WM side; use the native resolution of the device's
          screen -->
     <integer name="config_maxUiWidth">0</integer>
+
+    <!-- The host owns the lock screen. A guest keyguard only blocks app windows after a wake. -->
+    <bool name="config_disableLockscreenByDefault">true</bool>
 </resources>
