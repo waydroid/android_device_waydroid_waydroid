@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ANDROID_USE_GAPPS ?= true
+ANDROID_USE_GAPPS ?= false
 
 # Inherit from waydroid device
 $(call inherit-product, $(LOCAL_PATH)/../device.mk)

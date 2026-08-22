@@ -17,7 +17,7 @@
 PRODUCT_IS_ATV := true
 TARGET_ATV_FORCE_1080_SCALING := false
 
-ANDROID_USE_GAPPS ?= true
+ANDROID_USE_GAPPS ?= false
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)

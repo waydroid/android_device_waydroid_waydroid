@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ANDROID_USE_GAPPS ?= true
+ANDROID_USE_GAPPS ?= false
 ANDROID_USE_NDK_TRANSLATION ?= true
 ANDROID_USE_WIDEVINE ?= true
 
