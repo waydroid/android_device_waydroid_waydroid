@@ -21,8 +21,6 @@ else ifneq ("$(wildcard vendor/bliss/*)","")
     VENDOR_NAME := bliss
 endif
 
-TARGET_UNOFFICIAL_BUILD_ID := WayDroidATV
-
 PRODUCT_MAKEFILES := \
     $(VENDOR_NAME)_waydroid_arm64:$(LOCAL_DIR)/waydroid_arm64/$(VENDOR_NAME)_waydroid_arm64.mk \
     $(VENDOR_NAME)_waydroid_arm64_only:$(LOCAL_DIR)/waydroid_arm64_only/$(VENDOR_NAME)_waydroid_arm64_only.mk \
