@@ -4,6 +4,14 @@ import /vendor_extra/build.prop vendor.gralloc.disable_ubwc
 # Audio
 af.thread.throttle=false
 audio.deep_buffer.media=true
+ro.config.alarm_vol_default=7
+ro.config.alarm_vol_steps=7
+ro.config.media_vol_default=16
+ro.config.media_vol_steps=16
+ro.config.system_vol_default=7
+ro.config.system_vol_steps=7
+ro.config.vc_call_vol_default=7
+ro.config.vc_call_vol_steps=7
 
 # Provides overrides to configure the Dalvik heap for a 4GB phone
 dalvik.vm.heapstartsize=8m

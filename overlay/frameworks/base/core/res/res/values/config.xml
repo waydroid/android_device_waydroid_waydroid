@@ -25,4 +25,10 @@
     <!-- The device supports freeform window management -->
     <bool name="config_freeformWindowManagement">true</bool>
 
+    <!-- Set default volume to maximum. Adjustment of volume level is done in host side via
+         PipeWire/PulseAudio in most situations. -->
+    <integer name="config_audio_notif_vol_default">7</integer>
+    <integer name="config_audio_notif_vol_steps">7</integer>
+    <integer name="config_audio_ring_vol_default">7</integer>
+    <integer name="config_audio_ring_vol_steps">7</integer>
 </resources>
