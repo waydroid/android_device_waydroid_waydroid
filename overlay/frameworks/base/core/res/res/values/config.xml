@@ -31,4 +31,9 @@
 
     <!-- The host owns the lock screen. A guest keyguard only blocks app windows after a wake. -->
     <bool name="config_disableLockscreenByDefault">true</bool>
+
+    <!-- The host warns about its own battery. -1 keeps every level above the guest's low and
+         critical thresholds; the low level is clamped up to the critical one, so set both. -->
+    <integer name="config_criticalBatteryWarningLevel">-1</integer>
+    <integer name="config_lowBatteryWarningLevel">-1</integer>
 </resources>
